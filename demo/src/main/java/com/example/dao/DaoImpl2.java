@@ -1,4 +1,4 @@
-package dao;
+package com.example.dao;
 
 import org.springframework.stereotype.Component;
 
