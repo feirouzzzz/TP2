@@ -9,4 +9,10 @@ public class DaoImpl implements IDao {
         // Cette implémentation retourne une valeur fixe de 100.0
         return 100.0;
     }
+
+    @Override
+    public double getData() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getData'");
+    }
 }

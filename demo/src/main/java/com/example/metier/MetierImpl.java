@@ -1,21 +1,26 @@
 package com.example.metier;
 
+import com.example.dao.IDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.dao.IDao;
+@Component("metier") // Déclare cette classe comme un bean Spring avec l'identifiant "metier"
+public class MetierImpl implements IMetier {
 
-@Component // <- obligatoire pour que Spring gère ce bean
-public class MetierImpl {
-
+    // Injection de dépendance : Spring injectera automatiquement une implémentation
+    // de IDao
     @Autowired
-    private IDao dao; // injection automatique du DAO
+    private IDao dao; // Par défaut, Spring injectera le premier bean compatible trouvé
 
+    @Override
     public double calcul() {
+        // Utilise la méthode getValue() de l'implémentation injectée de IDao
+        // et multiplie le résultat par 2
         return dao.getValue() * 2;
     }
 
-    public void setDao(IDao dao2) {
-        throw new UnsupportedOperationException("Unimplemented method 'setDao'");
+    // Setter pour l'injection par setter (alternative à l'injection par champ)
+    public void setDao(IDao dao) {
+        this.dao = dao;
     }
 }
