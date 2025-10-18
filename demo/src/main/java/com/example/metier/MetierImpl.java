@@ -14,4 +14,8 @@ public class MetierImpl {
     public double calcul() {
         return dao.getValue() * 2;
     }
+
+    public void setDao(IDao dao2) {
+        throw new UnsupportedOperationException("Unimplemented method 'setDao'");
+    }
 }
